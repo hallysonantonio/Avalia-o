@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            /* Remove as margens padrão da página */
+            padding: 0;
+            /* Remove o padding padrão da página */
+        }
+
+        h1 {
+            text-align: center;
+            color: #38ff1e;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            /* Faz a tabela ocupar 100% da largura da página */
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
+            /* Quebrar palavras para evitar sobreposição */
+        }
+
+        th {
+            background-color: #1eff44;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Ajustar a largura das colunas */
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 40%;
+            /* Aumenta a largura da coluna Nome */
+        }
+
+        /* Ajustar margens da página */
+        .container {
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Clientes Cadastrados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.cpf }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

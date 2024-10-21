@@ -1,0 +1,33 @@
+<h1>Atualizar Consulta</h1>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="id_cliente">Paciente:</label>
+        <input type="number" id="id_cliente" name="cliente" value="{{ form.cliente.value|default_if_none:'' }}" maxlength="100"
+            required>
+        {% if form.cliente.errors %}
+        <div class="error">{{ form.cliente.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="id_descricao">Descrição:</label>
+        <input type="text" id="id_descricao" name="descricao" value="{{ form.descricao.value|default_if_none:'' }}" maxlength="11"
+            required>
+        {% if form.descricao.errors %}
+        <div class="error">{{ form.descricao.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="id_descricao">Valor:</label>
+        <input type="number" id="id_valor" name="valor" value="{{ form.valor.value|default_if_none:'' }}" maxlength="9999"
+            required>
+        {% if form.valor.errors %}
+        <div class="error">{{ form.valor.errors }}</div>
+        {% endif %}
+    </div>
+
+    <button type="submit">Salvar</button>
+</form>
+<a href="{% url 'listar_pedidos' %}">Voltar</a>
